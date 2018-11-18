@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by  () -->
+<!-- @(#) $Id: scene.xsd,v 1.3 2005/09/21 15:42:49 hliu Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="scene_setting">
+		<xs:annotation>
+			<xs:documentation>scene settings for vclib</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="viewing_parameters">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="lighting">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="light" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="light_x" type="xs:float"/>
+													<xs:element name="light_y" type="xs:float"/>
+													<xs:element name="light_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="half" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="half_x" type="xs:float"/>
+													<xs:element name="half_y" type="xs:float"/>
+													<xs:element name="half_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="vector" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="vector_x" type="xs:float"/>
+													<xs:element name="vector_y" type="xs:float"/>
+													<xs:element name="vector_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ambient" type="xs:float" maxOccurs="unbounded"/>
+										<xs:element name="diffuse" type="xs:float" maxOccurs="unbounded"/>
+										<xs:element name="specular" type="xs:float" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="num_lights" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="model_view_matrix">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="element" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="m" type="xs:nonNegativeInteger"/>
+													<xs:element name="n" type="xs:nonNegativeInteger"/>
+													<xs:element name="value" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="viewing_transform">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="eye">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="eye_x" type="xs:float"/>
+													<xs:element name="eye_y" type="xs:float"/>
+													<xs:element name="eye_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="center">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="center_x" type="xs:float"/>
+													<xs:element name="center_y" type="xs:float"/>
+													<xs:element name="center_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="up">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="up_x" type="xs:float"/>
+													<xs:element name="up_y" type="xs:float"/>
+													<xs:element name="up_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="projection_transform">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="mode" type="xs:float"/>
+										<xs:element name="near" type="xs:float"/>
+										<xs:element name="far" type="xs:float"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="perspective_projection">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="fov" type="xs:float"/>
+										<xs:element name="aspect" type="xs:float"/>
+										<xs:element name="hither" type="xs:float"/>
+										<xs:element name="yon" type="xs:float"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="orthographic_projection">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="left" type="xs:float"/>
+										<xs:element name="right" type="xs:float"/>
+										<xs:element name="bottom" type="xs:float"/>
+										<xs:element name="top" type="xs:float"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="viewport_transform">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="width" type="xs:float"/>
+										<xs:element name="height" type="xs:float"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="mcube" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="iso_value" type="xs:float"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="raycasting" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="scale">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="scale_x" type="xs:float"/>
+										<xs:element name="scale_y" type="xs:float"/>
+										<xs:element name="scale_z" type="xs:float"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="color_scheme" type="xs:integer"/>
+							<xs:element name="iso_range">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="pos" type="xs:float" maxOccurs="unbounded"/>
+										<xs:element name="size" type="xs:float" maxOccurs="unbounded"/>
+										<xs:element name="opa" type="xs:float" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="num_iso_range" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="streamline" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="seeds">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="seed" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="seed_x" type="xs:float"/>
+													<xs:element name="seed_y" type="xs:float"/>
+													<xs:element name="seed_z" type="xs:float"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="num_seeds" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="step_size" type="xs:float"/>
+							<xs:element name="num_verts" type="xs:float"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

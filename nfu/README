@@ -1,0 +1,19 @@
+files
+
+-- base64.h base64.c
+   Functions for encoding and decoding scene settings. Encoding is used at the
+   client side and decoding is used at the depot.
+
+-- scene_xml2ascii.h scene_xml2ascii.c
+   An utility called by lors_compute for parsing the xml scene setting and 
+   encoding its content to an ascii string. The ascii string is passed to 
+   the intended nfu operation at a remote depot.
+
+-- scene_ascii2val.h scene_ascii2val.c
+   Functions for decoding the ascii string to meaningful scene setting values.
+
+-- scene.xsd scene_test.xml
+   An example scene setting xml file based on the scene setting schema.
+   
+-- ascii2val_test.c
+   An test program that uses functions defined in scene_ascii2val.h.
